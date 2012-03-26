@@ -1,0 +1,10 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+$config['base_url']	= 'http://isundaylee.vicp.cc/alumni/';
+
+$db['default']['port'] = '3306';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '971742';
+$db['default']['database'] = 'alumni';
+
