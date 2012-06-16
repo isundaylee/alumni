@@ -48,7 +48,7 @@ $lang['membership_mobile_visible'] = "手机号码公开";
 $lang['membership_mobile_invisible'] = "手机号码不公开";
 
 
-$lang['membership_es_password_generated'] = "您新生成的密码！"; 
+$lang['membership_es_password_generated'] = "您新生成的密码"; 
 $lang['membership_ec_password_generated'] = "以下是您新生成的密码，请妥善保管：|PASSWORD|。";
 
 $lang['membership_opt_mobile_visible'] = "将我的手机号码公开。"; 

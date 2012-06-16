@@ -37,4 +37,6 @@ $lang['page_msg_no_comment'] = "没有评论。";
 
 $lang["page_editor"] = "编辑"; 
 
+$lang["page_any"] = "不限"; 
+
 ?>

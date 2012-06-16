@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-require('site_specific.php'); 
+require('site_specific.php');
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

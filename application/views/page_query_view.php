@@ -41,7 +41,7 @@ function goto_page(i)
 					 "placeholder" => $this->lang->line('page_ph_content'))); ?>
 					 
 <?= form_dropdown("type", 
-				  array_merge($this->config->item('page_type_list'), array("" => $this->lang->line('misc_any'))), 
+				  array_merge($this->config->item('page_type_list'), array("" => $this->lang->line('page_any'))), 
 				  $querydata['type'],
 				  'id="type"'); ?>
 

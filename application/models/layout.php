@@ -55,7 +55,7 @@ class Layout extends CI_Model {
     	$data['css'] = $this->config->item('base_url') . $this->config->item('css'); 
     	$data['header'] = $this->load->view('header_view', $header_data, TRUE); 
     	$data['footer'] = $this->load->view('footer_view', '', TRUE); 
-    	$data['title'] = $this->lang->line('misc_message');  
+    	$data['title'] = "Message"; 
 		$data['content'] = $this->load->view('message_view', $subdata, TRUE); 
 		    	
     	$this->load->view('layout_view.php', $data); 

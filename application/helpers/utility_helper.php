@@ -40,12 +40,35 @@ function to_html_rich($text, $data = array())
 	$text = preg_replace('/\\\\link{([^}]+),([^}]+)}/', '<a href="$1">$2</a>', $text); 
 	$text = preg_replace('/\\\\link{([^}]+)}/', '<a href="$1">$1</a>', $text);  
 	$text = preg_replace('/\\\\section{([^}]+)}/', '<h3 class="section">$1</h3>', $text); 
-	$text = preg_replace('/\\\\image{([^}]+)}/', '<img src="$1" width="' . $CI->config->item('page_image_width') . '"/>', $text); 
+	$text = preg_replace('/\\\\image{([^}]+),([0-9]+)}/', '<img class="image" src="$1" width="$2"/>', $text); 
+	$text = preg_replace('/\\\\image{([^}]+)}/', '<img class="image" src="$1" width="' . $CI->config->item('page_image_width') . '"/>', $text);  
 	$text = preg_replace('/\\\\flash{([^}]+)}/', '<embed src="$1" quality="high" width="' . $CI->config->item('page_flash_width') . '" height="' . $CI->config->item('page_flash_height') . '"align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>', $text); 
 	$CI->load->language('signup'); 
 	$text = preg_replace('/\\\\signup/', '<a href="' . $CI->config->item('base_url') . $CI->config->item('index_page') . '/signup/add/' . $data["pid"] . '" ><div class="signup_button">' . $CI->lang->line('signup_signup') . '</div></a>', $text); 
+	$text = preg_replace('/\\\\thumbnail{([^}]+)}/', '', $text);  
 	// $text = str_replace(" ", "&nbsp; ", $text); 
 	$text = str_replace("\n", "<br />", $text); 
+	return $text; 
+}
+   	
+
+function to_html_rich_plain($text, $data = array())
+{
+	$CI =& get_instance(); 
+
+	$text = htmlentities($text, ENT_COMPAT, 'UTF-8'); 
+	$text = preg_replace('/\\\\link{([^}]+),([^}]+)}/', '$2', $text); 
+	$text = preg_replace('/\\\\link{([^}]+)}/', '$1', $text);  
+	$text = preg_replace('/\\\\section{([^}]+)}/', '$1', $text); 
+	$text = preg_replace('/\\\\image{([^}]+),([0-9]+)}/', ' [Image] ', $text); 
+	$text = preg_replace('/\\\\image{([^}]+)}/', ' [Image] ', $text);  
+	$text = preg_replace('/\\\\flash{([^}]+)}/', ' [Flash] ', $text); 
+	$text = preg_replace('/\\\\thumbnail{([^}]+)}/', '', $text);  
+
+	$CI->load->language('signup'); 
+	$text = preg_replace('/\\\\signup/', $CI->lang->line('signup_signup'), $text); 
+	// $text = str_replace(" ", "&nbsp; ", $text); 
+	$text = str_replace("\n", "", $text); 
 	return $text; 
 }
 
@@ -65,6 +88,12 @@ function safe_data($i)
 	{
 		return $i; 
 	}
+}
+
+function fetch_tag_value($text, $tagname) {
+	$matches = array(); 	
+	if (preg_match('/\\\\' . $tagname . '{([^}]+)}/', $text, $matches) == 0) return ""; 
+	else return $matches[1]; 
 }
 
 ?>

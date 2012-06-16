@@ -22,6 +22,4 @@ $lang['misc_next_page'] = "下一页";
 $lang['misc_first_page'] = "首页"; 
 $lang['misc_last_page'] = "尾页"; 
 
-$lang['misc_message'] = "提示"; 
-
 ?>

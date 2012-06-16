@@ -48,7 +48,7 @@ class Page extends CI_Controller {
 			
 			if (count($editors) == 0)
 			{
-				$this->layout->message(array("content" => $this->lang->page('page_msg_editor_id_not_exists'), 
+				$this->layout->message(array("content" => $this->lang->line('page_msg_editor_id_not_exists'), 
 											 "links" => array($this->lang->line('homepage_go_to_homepage') => "homepage"))); 
 			}
 			else

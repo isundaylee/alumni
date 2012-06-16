@@ -39,7 +39,7 @@ class Membership extends CI_Controller {
 		$this->form_validation->set_rules('state', $this->lang->line('membership_state'), 'min_length[2]|max_length[128]');
 		$this->form_validation->set_rules('city', $this->lang->line('membership_city'), 'min_length[2]|max_length[128]');
 		$this->form_validation->set_rules('intro', $this->lang->line('membership_intro'), 'required|min_length[1]'); 
-		$this->form_validation->set_rules('university', $this->lang->line('membership_university'), 'required|min_length[1]|max_length[128]'); 
+		$this->form_validation->set_rules('university', $this->lang->line('membership_university'), 'min_length[1]|max_length[128]'); 
 		$this->form_validation->set_rules('birthday', $this->lang->line('membership_birthday'), 'required|exact_length[8]'); 
 		
 		if ($this->form_validation->run() == FALSE)
@@ -163,7 +163,10 @@ class Membership extends CI_Controller {
 			$this->email->subject($this->lang->line('membership_es_password_generated')); 
 			$this->email->message(str_replace('|PASSWORD|', $password, $this->lang->line('membership_ec_password_generated')));
 			
-			if (!$this->email->send()) $this->layout->internal_error(array("errmsg" => "Cannot send email. ")); 
+			if (!$this->email->send()) {
+				$this->layout->internal_error(array("errmsg" => "Cannot send email. ")); 
+				// echo $this->email->print_debugger();
+			}
 			else
 			{
 				$this->layout->message(array('content' => $this->lang->line('membership_msg_password_generated'), 

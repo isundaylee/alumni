@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+require('site_specific.php');
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -620,16 +622,18 @@ $config['membership_fields'] = array("id", "password", "email", "name", "year", 
 
 $config['default_password_length'] = 6; 
 
-$config['webmaster_email'] = 'lzlqjh@126.com'; 
+$config['webmaster_email'] = 'wflser@163.com'; 
 
-$config['index_entries_per_page'] = 10; 
-$config['page_entries_per_page'] = 5; 
-$config['comment_entries_per_page'] = 5; 
+$config['index_entries_per_page'] = 20; 
+$config['page_entries_per_page'] = 10; 
+$config['comment_entries_per_page'] = 10; 
 
 $config['page_image_width'] = "600px"; 
 $config['page_flash_width'] = "600px"; 
 $config['page_flash_height'] = "500px";
 $config['page_preview_length'] = "256"; 
+
+$config['article_image_width'] = "150px"; 
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

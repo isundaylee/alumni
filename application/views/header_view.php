@@ -18,7 +18,6 @@ $this->load->language('index');
 			<li><?= anchor('page/type/EV', $ptlist['EV']); ?></li>
 			<li><?= anchor('page/type/AT', $ptlist['AT']); ?></li>
 			<li><?= anchor('page/type/VI', $ptlist['VI']); ?></li>
-			<li><?= $this->lang->line('homepage_about_us'); ?></li>
 		</ul>
 	</nav>
 </div>
