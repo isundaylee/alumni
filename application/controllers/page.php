@@ -151,8 +151,12 @@ class Page extends CI_Controller {
 			$id = $_POST['id']; 
 			unset($_POST['id']); 
 			
+			
 			if ($id == 0) $id = $this->page_model->insert_record($_POST); 
-			else $this->page_model->update_record($id, $_POST); 
+			else {
+				unset($_POST['owner']); 
+				$this->page_model->update_record($id, $_POST); 
+			}
 			
 			redirect('page/show/' . $id); 
 		}
