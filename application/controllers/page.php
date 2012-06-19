@@ -259,8 +259,6 @@ class Page extends CI_Controller {
 			$pages = $this->page_model->get_records(array("id" => $_POST['pid'])); 
 			$page = $pages[0]; 
 			
-			print_r($page);  
-			
 			$users = $this->membership_model->get_records(array("id" => $page->owner)); 
 			$user = $users[0]; 
 
