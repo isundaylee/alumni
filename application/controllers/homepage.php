@@ -2,6 +2,8 @@
 
 class Homepage extends CI_Controller {
 
+	// making some unnecessary changes 
+
 	public function __construct()
 	{
 		parent::__construct(); 
